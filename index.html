@@ -25,7 +25,106 @@
                     </li>
                 </ul>
             </header>
+
+            <section class="appeal-steps">
+                <div class="appeal-steps__column appeal-steps__column--left">
+                    <h2 class="appeal-steps__title">
+                        СКАЧАЙТЕ И ЗАПОЛНИТЕ<br>
+                        два файла с заявлением<br>
+                        на апелляцию
+                    </h2>
+                    <div class="appeal-downloads">
+                        <button class="appeal-downloads__item" type="button">
+                            <span class="appeal-downloads__icon appeal-downloads__icon--pdf">PDF</span>
+                            <span class="appeal-downloads__number">1</span>
+                            <span class="appeal-downloads__link">Скачать</span>
+                            <span class="appeal-downloads__arrow">↓</span>
+                        </button>
+                        <button class="appeal-downloads__item" type="button">
+                            <span class="appeal-downloads__icon appeal-downloads__icon--pdf">PDF</span>
+                            <span class="appeal-downloads__number">2</span>
+                            <span class="appeal-downloads__link">Скачать</span>
+                            <span class="appeal-downloads__arrow">↓</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="appeal-steps__column appeal-steps__column--center">
+                    <h2 class="appeal-steps__title">
+                        ОТСКАНИРУЙТЕ И ЗАГРУЗИТЕ<br>
+                        заполненные заявления
+                    </h2>
+                    <div class="appeal-upload">
+                        <div class="appeal-upload__item" data-upload>
+                            <input
+                                class="appeal-upload__input"
+                                type="file"
+                                id="appeal-upload-1"
+                                name="appeal-file-1"
+                                data-upload-input
+                            >
+                            <span class="appeal-upload__status-icon appeal-upload__status-icon--edit" data-upload-status-icon>✎</span>
+                            <label class="appeal-upload__label" for="appeal-upload-1" data-upload-label>
+                                <span class="appeal-upload__number">1</span>
+                            </label>
+                        </div>
+
+                        <div class="appeal-upload__item" data-upload>
+                            <input
+                                class="appeal-upload__input"
+                                type="file"
+                                id="appeal-upload-2"
+                                name="appeal-file-2"
+                                data-upload-input
+                            >
+                            <span class="appeal-upload__status-icon appeal-upload__status-icon--plus" data-upload-status-icon>+</span>
+                            <label class="appeal-upload__label" for="appeal-upload-2" data-upload-label>
+                                <span class="appeal-upload__number">2</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="appeal-steps__column appeal-steps__column--right">
+                    <h2 class="appeal-steps__title">
+                        ОПЛАТИТЕ<br>
+                        подачу апелляции
+                    </h2>
+                    <p class="appeal-steps__price">
+                        Стоимость апелляции - 7700 ₽
+                    </p>
+                    <button class="appeal-payment-button" type="button">
+                        ОПЛАТА АПЕЛЛЯЦИИ
+                    </button>
+                </div>
+            </section>
         </section>
     </main>
+
+    <script>
+        (function () {
+            var uploadItems = document.querySelectorAll('[data-upload]');
+
+            uploadItems.forEach(function (item) {
+                var input = item.querySelector('[data-upload-input]');
+                var statusIcon = item.querySelector('[data-upload-status-icon]');
+                var check = item.querySelector('[data-upload-check]');
+
+                input.addEventListener('change', function () {
+                    var hasFile = input.files && input.files.length > 0;
+
+                    if (hasFile) {
+                        statusIcon.textContent = '✎';
+                        statusIcon.classList.remove('appeal-upload__status-icon--plus');
+                        statusIcon.classList.add('appeal-upload__status-icon--edit');
+                    } else {
+                        statusIcon.textContent = '+';
+                        statusIcon.classList.remove('appeal-upload__status-icon--edit');
+                        statusIcon.classList.add('appeal-upload__status-icon--plus');
+                    }
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
