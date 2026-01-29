@@ -7,8 +7,13 @@ body {
 
 body {
   margin: 0;
-  font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family:
+    "Roboto",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   font-size: 18px;
   font-weight: 300;
 }
@@ -23,7 +28,7 @@ body {
   width: 100%;
   max-width: 1140px;
   background-color: #ffffff;
-  padding: 20px ;
+  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -60,19 +65,17 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.65em;
+  top: 50%;
+  transform: translateY(-50%);
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #e4002b;
-  transform: translateY(-50%);
+  background-color: #ec1630;
 }
 
 @media (min-width: 481px) {
-  
-
   .appeal-block {
-    padding:  25px;
+    padding: 25px;
   }
 
   .appeal-block__title {
@@ -92,14 +95,17 @@ body {
 }
 
 @media (min-width: 769px) {
-
-
   .appeal-block {
     padding: 40px 32px;
   }
 
   .appeal-block__header {
     margin-bottom: 32px;
+  }
+
+  .appeal-downloads,
+  .appeal-upload {
+    margin-top: auto;
   }
 }
 
@@ -119,12 +125,12 @@ body {
 }
 
 .appeal-steps__column {
+  display: flex;
+  flex-direction: column;
   gap: 23px;
 }
 
 .appeal-steps__column_right {
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
@@ -133,7 +139,6 @@ body {
   text-align: center;
   font-weight: 300;
   margin: 0;
-
 }
 
 .appeal-downloads {
@@ -153,11 +158,6 @@ body {
   padding: 0;
 }
 
-.appeal-downloads__item:hover {
-  border-color: transparent;
-  box-shadow: none;
-}
-
 .appeal-downloads__bg {
   position: absolute;
   top: 50%;
@@ -174,40 +174,20 @@ body {
   width: 31px;
   height: 42px;
 }
-.appeal-downloads__number {
-  position: absolute;
-  top: 43px;
-  left: 10px;
-  width: 11px;
-  height: 24px;
-}
 
 .appeal-downloads__link {
   position: absolute;
   bottom: 18px;
-  left: 46%;
+  left: 50%;
   transform: translateX(-50%);
   font-size: 12px;
-  color: #e4002b;
+  color: #ec1630;
   font-weight: 300;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
-.appeal-downloads__arrow {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: #e4002b;
-  color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1;
+.appeal-downloads__link:hover {
+  text-decoration: underline;
 }
 
 .appeal-upload {
@@ -261,7 +241,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #e4002b;
+  background-color: #ec1630;
   color: #ffffff;
   font-size: 18px;
   font-weight: 600;
@@ -282,7 +262,7 @@ body {
 .appeal-steps__price {
   margin: 0;
   font-size: 12px;
-  color: #e4002b;
+  color: #ec1630;
   font-weight: 300;
   text-align: center;
 }
@@ -291,13 +271,15 @@ body {
   padding: 7px 50px;
   border-radius: 25px;
   border: none;
-  background-color: #e4002b;
+  background-color: #ec1630;
   color: #ffffff;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(228, 0, 43, 0.4);
-  transition: background-color 0.2s ease, box-shadow 0.2s ease,
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
     transform 0.1s ease;
   width: 100%;
   max-width: 280px;
@@ -317,20 +299,9 @@ body {
 @media (min-width: 861px) {
   .appeal-steps {
     flex-direction: row;
-    
   }
-
-
 
   .appeal-steps__column_center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .appeal-steps__column_right {
-    display: flex;
-    flex-direction: column;
     align-items: center;
   }
 
@@ -360,16 +331,4 @@ body {
 
 .appeal-note__text:last-child {
   margin-bottom: 0;
-}
-
-@media (min-width: 769px) {
-  .appeal-steps__column {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .appeal-downloads,
-  .appeal-upload {
-    margin-top: auto;
-  }
 }
