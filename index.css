@@ -11,13 +11,10 @@ body {
     "Segoe UI", sans-serif;
   font-size: 18px;
   font-weight: 300;
-  color: #333333;
-  background-color: #f4f5f7;
 }
 
 .appeal {
   min-width: 360px;
-  padding: 16px 8px;
   display: flex;
   justify-content: center;
 }
@@ -26,9 +23,7 @@ body {
   width: 100%;
   max-width: 1140px;
   background-color: #ffffff;
-  border-radius: 4px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04);
-  padding: 24px 16px;
+  padding: 20px ;
   box-sizing: border-box;
 }
 
@@ -74,12 +69,10 @@ body {
 }
 
 @media (min-width: 481px) {
-  .appeal {
-    padding: 20px 12px;
-  }
+  
 
   .appeal-block {
-    padding: 32px 24px;
+    padding:  25px;
   }
 
   .appeal-block__title {
@@ -99,9 +92,7 @@ body {
 }
 
 @media (min-width: 769px) {
-  .appeal {
-    padding: 24px 16px;
-  }
+
 
   .appeal-block {
     padding: 40px 32px;
@@ -121,15 +112,17 @@ body {
 .appeal-steps {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  margin-top: 25px;
+  justify-content: space-between;
+  padding-bottom: 25px;
+  margin: 25px 0;
+  gap: 25px;
 }
 
 .appeal-steps__column {
-  width: 100%;
+  gap: 23px;
 }
 
-.appeal-steps__column--right {
+.appeal-steps__column_right {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -137,61 +130,62 @@ body {
 
 .appeal-steps__title {
   font-size: 18px;
-  line-height: 1.5;
   text-align: center;
   font-weight: 300;
-  margin: 0 0 20px;
-  color: #333333;
+  margin: 0;
+
 }
 
 .appeal-downloads {
   display: flex;
-  gap: 16px;
+  gap: 27px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .appeal-downloads__item {
   position: relative;
-  border: 1px solid #e5e5e5;
-  border-radius: 4px;
-  background-color: #f5f5f5;
+  border: none;
+  background-color: transparent;
   cursor: pointer;
-  width: 197px;
-  height: 112px;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  width: 85px;
+  height: 110px;
+  padding: 0;
 }
 
 .appeal-downloads__item:hover {
-  border-color: #e4002b;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: transparent;
+  box-shadow: none;
 }
 
-.appeal-downloads__icon {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  font-size: 12px;
-  font-weight: 300;
-  color: #e4002b;
-  line-height: 1;
-}
-
-.appeal-downloads__number {
+.appeal-downloads__bg {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 56px;
-  font-weight: 700;
-  color: #e4002b;
-  line-height: 1;
+  width: 85px;
+  height: 110px;
+}
+
+.appeal-downloads__icon {
+  position: absolute;
+  top: 23px;
+  left: 10px;
+  width: 31px;
+  height: 42px;
+}
+.appeal-downloads__number {
+  position: absolute;
+  top: 43px;
+  left: 10px;
+  width: 11px;
+  height: 24px;
 }
 
 .appeal-downloads__link {
   position: absolute;
-  bottom: 12px;
-  left: 50%;
+  bottom: 18px;
+  left: 46%;
   transform: translateX(-50%);
   font-size: 12px;
   color: #e4002b;
@@ -218,24 +212,24 @@ body {
 
 .appeal-upload {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .appeal-upload__item {
   position: relative;
-  border-radius: 6px;
-  border: 2px solid #dadde3;
-  background-color: #f5f5f5;
-  width: 120px;
-  height: 120px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 85px;
+  height: 110px;
 }
 
-.appeal-upload__item:hover {
-  border-color: #e4002b;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.appeal-upload__file {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 85px;
+  height: 110px;
+  transform: translate(-50%, -50%);
 }
 
 .appeal-upload__input {
@@ -243,8 +237,6 @@ body {
   inset: 0;
   opacity: 0;
   cursor: pointer;
-  width: 100%;
-  height: 100%;
   z-index: 1;
 }
 
@@ -255,14 +247,14 @@ body {
   transform: translate(-50%, -50%);
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 6px;
   pointer-events: none;
 }
 
 .appeal-upload__status-icon {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 3px;
+  right: 4px;
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -276,31 +268,19 @@ body {
 }
 
 .appeal-upload__number {
-  font-size: 48px;
-  font-weight: 700;
-  color: #e4002b;
-  line-height: 1;
+  width: 17px;
+  height: 24px;
 }
 
 .appeal-upload__check {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 2px solid #35b34a;
-  background-color: #35b34a;
-  color: #ffffff;
-  font-size: 12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  width: 24px;
+  height: 22px;
   opacity: 0;
   transition: opacity 0.2s ease;
-  flex-shrink: 0;
 }
 
-
 .appeal-steps__price {
-  margin: 0 0 16px;
+  margin: 0;
   font-size: 12px;
   color: #e4002b;
   font-weight: 300;
@@ -308,19 +288,20 @@ body {
 }
 
 .appeal-payment-button {
-  padding: 14px 32px;
-  border-radius: 24px;
+  padding: 7px 50px;
+  border-radius: 25px;
   border: none;
   background-color: #e4002b;
   color: #ffffff;
   font-size: 14px;
   font-weight: 700;
-  text-transform: uppercase;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(228, 0, 43, 0.4);
-  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease,
+    transform 0.1s ease;
   width: 100%;
   max-width: 280px;
+  line-height: 154%;
 }
 
 .appeal-payment-button:hover {
@@ -333,34 +314,62 @@ body {
   box-shadow: 0 3px 8px rgba(228, 0, 43, 0.4);
 }
 
-@media (min-width: 769px) {
+@media (min-width: 861px) {
   .appeal-steps {
     flex-direction: row;
-    justify-content: space-between;
+    
   }
 
-  .appeal-steps__column {
-    flex: 1;
-  }
 
-  .appeal-steps__column--center {
+
+  .appeal-steps__column_center {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .appeal-steps__column--right {
+  .appeal-steps__column_right {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  .appeal-steps__title {
-    font-size: 14px;
-    margin-bottom: 20px;
   }
 
   .appeal-payment-button {
     width: auto;
+  }
+}
+
+.appeal-note {
+  margin-top: 24px;
+}
+
+.appeal-note__content {
+  padding: 15px;
+  border: 1px solid #ec1630;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+.appeal-note__text {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 300;
+  color: #333333;
+}
+
+.appeal-note__text:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 769px) {
+  .appeal-steps__column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .appeal-downloads,
+  .appeal-upload {
+    margin-top: auto;
   }
 }

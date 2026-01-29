@@ -35,21 +35,19 @@
                     </h2>
                     <div class="appeal-downloads">
                         <button class="appeal-downloads__item" type="button">
-                            <span class="appeal-downloads__icon appeal-downloads__icon--pdf">PDF</span>
-                            <span class="appeal-downloads__number">1</span>
+                            <img src="./images/file1.svg" class="appeal-downloads__bg" alt="" />
+                            <img src="./images/pdf1.svg" class="appeal-downloads__icon" alt="PDF 1" />
                             <span class="appeal-downloads__link">Скачать</span>
-                            <span class="appeal-downloads__arrow">↓</span>
                         </button>
                         <button class="appeal-downloads__item" type="button">
-                            <span class="appeal-downloads__icon appeal-downloads__icon--pdf">PDF</span>
-                            <span class="appeal-downloads__number">2</span>
+                            <img src="./images/file1.svg" class="appeal-downloads__bg" alt="" />
+                            <img src="./images/pdf2.svg" class="appeal-downloads__icon" alt="PDF 2" />
                             <span class="appeal-downloads__link">Скачать</span>
-                            <span class="appeal-downloads__arrow">↓</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="appeal-steps__column appeal-steps__column--center">
+                <div class="appeal-steps__column appeal-steps__column_center">
                     <h2 class="appeal-steps__title">
                         ОТСКАНИРУЙТЕ И ЗАГРУЗИТЕ<br>
                         заполненные заявления
@@ -63,9 +61,18 @@
                                 name="appeal-file-1"
                                 data-upload-input
                             >
-                            <span class="appeal-upload__status-icon appeal-upload__status-icon--edit" data-upload-status-icon>✎</span>
+                            <img src="./images/file.svg" class="appeal-upload__file" alt="" />
+                            <img
+                                src="./images/plus.svg"
+                                class="appeal-upload__status-icon appeal-upload__status-icon--plus"
+                                data-upload-status-icon
+                                data-icon-plus="./images/plus.svg"
+                                data-icon-pen="./images/pen.svg"
+                                alt="Добавить файл"
+                            />
                             <label class="appeal-upload__label" for="appeal-upload-1" data-upload-label>
-                                <span class="appeal-upload__number">1</span>
+                                <img src="./images/1.svg" class="appeal-upload__number" alt="1" />
+                                <img src="./images/chek.svg" class="appeal-upload__check" data-upload-check alt="Файл загружен" />
                             </label>
                         </div>
 
@@ -77,15 +84,24 @@
                                 name="appeal-file-2"
                                 data-upload-input
                             >
-                            <span class="appeal-upload__status-icon appeal-upload__status-icon--plus" data-upload-status-icon>+</span>
+                            <img src="./images/file.svg" class="appeal-upload__file" alt="" />
+                            <img
+                                src="./images/plus.svg"
+                                class="appeal-upload__status-icon appeal-upload__status-icon--plus"
+                                data-upload-status-icon
+                                data-icon-plus="./images/plus.svg"
+                                data-icon-pen="./images/pen.svg"
+                                alt="Добавить файл"
+                            />
                             <label class="appeal-upload__label" for="appeal-upload-2" data-upload-label>
-                                <span class="appeal-upload__number">2</span>
+                                <img src="./images/2.svg" class="appeal-upload__number" alt="2" />
+                                <img src="./images/chek.svg" class="appeal-upload__check" data-upload-check alt="Файл загружен" />
                             </label>
                         </div>
                     </div>
                 </div>
 
-                <div class="appeal-steps__column appeal-steps__column--right">
+                <div class="appeal-steps__column appeal-steps__column_right">
                     <h2 class="appeal-steps__title">
                         ОПЛАТИТЕ<br>
                         подачу апелляции
@@ -96,6 +112,19 @@
                     <button class="appeal-payment-button" type="button">
                         ОПЛАТА АПЕЛЛЯЦИИ
                     </button>
+                </div>
+            </section>
+
+            <section class="appeal-note">
+                <div class="appeal-note__content">
+                    <p class="appeal-note__text">
+                        Важная информация для корректного заполнения заявления:
+                    </p>
+                    <p class="appeal-note__text">
+                        Centre name: BKC-ih Moscow IELTS Test Centre<br>
+                        Centre number: RU087<br>
+                        Candidate number: Цифры в верхнем правом углу сертификата/можно не заполнять, если сертификат еще не получен.
+                    </p>
                 </div>
             </section>
         </section>
@@ -110,17 +139,24 @@
                 var statusIcon = item.querySelector('[data-upload-status-icon]');
                 var check = item.querySelector('[data-upload-check]');
 
+                if (!input || !statusIcon || !check) {
+                    return;
+                }
+
+                var plusSrc = statusIcon.getAttribute('data-icon-plus');
+                var penSrc = statusIcon.getAttribute('data-icon-pen');
+
                 input.addEventListener('change', function () {
                     var hasFile = input.files && input.files.length > 0;
 
                     if (hasFile) {
-                        statusIcon.textContent = '✎';
-                        statusIcon.classList.remove('appeal-upload__status-icon--plus');
-                        statusIcon.classList.add('appeal-upload__status-icon--edit');
+                        statusIcon.src = penSrc;
+                        statusIcon.alt = 'Редактировать файл';
+                        check.style.opacity = '1';
                     } else {
-                        statusIcon.textContent = '+';
-                        statusIcon.classList.remove('appeal-upload__status-icon--edit');
-                        statusIcon.classList.add('appeal-upload__status-icon--plus');
+                        statusIcon.src = plusSrc;
+                        statusIcon.alt = 'Добавить файл';
+                        check.style.opacity = '0';
                     }
                 });
             });
